@@ -1,0 +1,48 @@
+<mat-progress-bar *ngIf="form_status" mode="indeterminate"></mat-progress-bar>
+
+<div class="login-page img-fluid" fxLayout="row" fxLayout.xs="column" fxLayoutAlign="center" fxLayoutGap="50px">
+  <mat-card class="card" style="max-width: 380px;">
+    <mat-card-content>
+        <mat-card-title class="text-center m-b-24">Siraj Hotel</mat-card-title>
+        <br>
+      <form class="matero-form-horizontal" [formGroup]="reactiveForm" (ngSubmit)="postdata(reactiveForm)">
+        <mat-form-field class="field" appearance="outline">
+          <mat-label>Name</mat-label>
+          <input matInput formControlName="name" autocomplete="off" required>
+          <mat-error *ngIf="reactiveForm?.get('name')?.hasError('required')">Please enter Name</mat-error>
+        </mat-form-field>
+        
+        <mat-form-field class="field" appearance="outline">
+          <mat-label>Email / Mobile No</mat-label>
+          <input matInput formControlName="username" autocomplete="off" required>
+          <mat-error *ngIf="reactiveForm?.get('username')?.hasError('required')">Please enter Mobile / Email</mat-error>
+        </mat-form-field>
+        
+        <mat-form-field class="field" appearance="outline">
+          <mat-label>Password</mat-label>
+          <input matInput type="password" formControlName="password" autocomplete="off" required>
+          <mat-error *ngIf="reactiveForm?.get('password')?.hasError('required')">Please enter Password</mat-error>
+        </mat-form-field> 
+        
+        <mat-form-field class="field" appearance="outline">
+          <mat-label>Confirm Password</mat-label>
+          <input matInput type="password" formControlName="confirmPassword" autocomplete="off" required>
+          <mat-error *ngIf="reactiveForm?.get('confirmPassword')?.hasError('required')">Please confirm Password</mat-error>
+        </mat-form-field> 
+        <button class="buttonss" mat-raised-button [disabled]="reactiveForm?.invalid">Register</button>
+      </form>
+      <br>
+      <div class="text-center m-t-16">Already registered? <a routerLink="/auth/login">Click here to login</a></div>
+      
+    </mat-card-content> 
+  </mat-card>
+</div>
+
+<footer class="aruvi-footer">
+  <div class="aruvi-cpyr">
+    <span>&#169;
+      <span>{{year}}</span>
+      Siraj Hotel. All rights reserved.
+    </span>
+  </div>
+</footer>

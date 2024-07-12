@@ -1,0 +1,68 @@
+<mat-toolbar color="primary">
+  <mat-toolbar-row>
+    <button mat-icon-button class="iconmenu" (click)="sidenav.toggle()">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <h1 class="username">Siraj Hotel</h1>
+    <span class="example-spacer"></span>
+    <div class="date">
+      <app-fullscreen></app-fullscreen>
+    </div>
+    <div class="dates">
+      <app-clock></app-clock>
+    </div>
+    <!-- <div class="date">
+      <app-users></app-users>
+    </div> -->
+  </mat-toolbar-row>
+</mat-toolbar>
+
+<mat-sidenav-container>
+  <mat-sidenav
+    #sidenav
+    [mode]="(isHandset$ | async) ? 'over' : 'side'"
+    [opened]="!(isHandset$ | async)"
+  >
+    <mat-nav-list>
+      <a mat-list-item routerLink="/sales">Sales</a>
+      <a mat-list-item routerLink="/detail">Sale Details</a>
+      <a mat-list-item routerLink="/dashboard">Dashboard</a>
+      <a mat-list-item routerLink="/menu">Menu</a>
+
+      <div class="accordion" id="accordionExample">
+        <div class="accordion-item">
+          <h2
+            class="accordion-header"
+            class="matero-sidemenu-link"
+            matRipple
+            [matRippleDisabled]="!ripple"
+          >
+            <button
+              class="accordion-button"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#collapseOne"
+              aria-expanded="true"
+              aria-controls="collapseOne"
+            >
+              Reports
+            </button>
+          </h2>
+          <div
+            id="collapseOne"
+            class="accordion-collapse collapse show"
+            aria-labelledby="headingOne"
+            data-bs-parent="#accordionExample"
+          >
+            <a mat-list-item routerLink="/reports/sales">Sales Report</a>
+            <a mat-list-item routerLink="/reports/products">Product Report</a>
+          </div>
+        </div>
+      </div>
+      <!-- <a mat-list-item routerLink="/settings">Settings</a> -->
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>

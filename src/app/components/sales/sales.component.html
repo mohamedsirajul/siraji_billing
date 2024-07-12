@@ -1,0 +1,188 @@
+      <mat-tab-group animationDuration="1200ms" color="primary" mat-stretch-tabs class="example-stretched-tabs mat-elevation-z4">
+      <mat-tab  label="Bill-1 ">
+          <br>   
+          <br>
+          <br>
+          <div class="flex-container">
+            <div class="flex-item1">
+              <form >
+                <mat-form-field class="example-full-width" appearance="outline">
+                <mat-label>Waiter No</mat-label>
+                <input
+                class="filter"
+                matInput
+                (keyup)="applyFilter($event)"
+                #input
+                type="text"
+                [matAutocomplete]="auto"
+                [formControl]="myControl"
+                matInput
+              />
+              <mat-autocomplete  #auto="matAutocomplete"(optionSelected)="onSelectionChange($event.option.value) "  >
+                <mat-option
+                *ngFor="let option of filteredOption | async" [value]="option" class="option" >
+              
+                 {{ option }}
+  
+              </mat-option>             
+              </mat-autocomplete>          
+              </mat-form-field>
+              </form>
+            </div>
+              <div class="flex-item2">
+                <form >
+                  <mat-form-field class="example-full-width" appearance="outline">
+                    <mat-label>Table No</mat-label>
+                    <mat-select  [formControl]="toppings" multiple >
+                      <mat-select-trigger>
+                        {{toppings.value?.[0] || ''}}
+                        <span *ngIf="(toppings.value?.length || 0) > 1" class="example-additional-selection">
+                          (+{{(toppings.value?.length || 0) - 1}} {{toppings.value?.length === 2 ? 'other' : 'others'}})
+                        </span>
+                      </mat-select-trigger>
+                      <mat-option *ngFor="let topping of toppingList" [value]="topping">{{topping}}</mat-option>
+                    </mat-select>
+                  </mat-form-field>
+                
+                </form>
+              </div>
+            <div class="flex-item3">
+              <form class="example-form">
+                <mat-form-field class="example-full-width" appearance="outline">
+                  <mat-label>Seat Number</mat-label>
+                  <input type="number" matInput [formControl]="seatFormControl" autocomplete="off" placeholder="Seat Number" >
+                </mat-form-field>
+              </form>
+            </div>
+          </div>
+  
+          <!-- <app-table [item]="Waiter" [table]="TableNo"></app-table> -->
+          <app-table></app-table>
+      
+      </mat-tab>
+      
+      <mat-tab label="Bill-2 " > 
+        <br>
+        <br>
+        <br>
+          <div class="flex-container">
+            <div class="flex-item1">
+  
+              <form >
+                <mat-form-field class="example-full-width" appearance="outline">
+                <mat-label>Waiter No</mat-label>
+                <input
+                class="filter"
+                matInput
+                (keyup)="applyFilter($event)"
+                #input
+                type="text"
+                [matAutocomplete]="auto"
+                [formControl]="myControl"
+                matInput
+              />
+              <mat-autocomplete  #auto="matAutocomplete"(optionSelected)="onSelectionChange($event.option.value) "  >
+                <mat-option
+                *ngFor="let option of filteredOption | async" [value]="option" class="option" >
+              
+                 {{ option }}
+  
+              </mat-option>             
+              </mat-autocomplete>          
+              </mat-form-field>
+              </form>
+            </div>
+              <div class="flex-item2">
+                <form >
+                  <mat-form-field class="example-full-width" appearance="outline">
+                    <mat-label>Table No</mat-label>
+                    <mat-select [formControl]="toppings" multiple>
+                      <mat-select-trigger>
+                        {{toppings.value?.[0] || ''}}
+                        <span *ngIf="(toppings.value?.length || 0) > 1" class="example-additional-selection">
+                          (+{{(toppings.value?.length || 0) - 1}} {{toppings.value?.length === 2 ? 'other' : 'others'}})
+                        </span>
+                      </mat-select-trigger>
+                      <mat-option *ngFor="let topping of toppingList" [value]="topping">{{topping}}</mat-option>
+                    </mat-select>
+                  </mat-form-field>
+                
+                </form>
+              </div>
+            <div class="flex-item3">
+              <form class="example-form">
+                <mat-form-field class="example-full-width" appearance="outline">
+                  <mat-label>Seat Number</mat-label>
+                  <input type="number" matInput [formControl]="seatFormControl" autocomplete="off" placeholder="Seat Number" >
+                </mat-form-field>
+              </form>
+  
+  
+  
+            </div>
+          </div>
+  
+    <app-table></app-table>
+    
+      </mat-tab>
+      <mat-tab label="Bill-3 " >
+        <br>
+        <br>
+        <br>
+          <div class="flex-container">
+            <div class="flex-item1">
+  
+              <form >
+                <mat-form-field class="example-full-width" appearance="outline">
+                <mat-label>Waiter No</mat-label>
+                <input
+                class="filter"
+                matInput
+                (keyup)="applyFilter($event)"
+                #input
+                type="text"
+                [matAutocomplete]="auto"
+                [formControl]="myControl"
+                matInput
+              />
+              <mat-autocomplete  #auto="matAutocomplete"(optionSelected)="onSelectionChange($event.option.value) "  >
+                <mat-option
+                *ngFor="let option of filteredOption | async" [value]="option" class="option" >
+              
+                 {{ option }}
+  
+              </mat-option>             
+              </mat-autocomplete>          
+              </mat-form-field>
+              </form>
+            </div>
+              <div class="flex-item2">
+                <form >
+                  <mat-form-field class="example-full-width" appearance="outline">
+                    <mat-label>Table No</mat-label>
+                    <mat-select [formControl]="toppings" multiple>
+                      <mat-select-trigger>
+                        {{toppings.value?.[0] || ''}}
+                        <span *ngIf="(toppings.value?.length || 0) > 1" class="example-additional-selection">
+                          (+{{(toppings.value?.length || 0) - 1}} {{toppings.value?.length === 2 ? 'other' : 'others'}})
+                        </span>
+                      </mat-select-trigger>
+                      <mat-option *ngFor="let topping of toppingList" [value]="topping">{{topping}}</mat-option>
+                    </mat-select>
+                  </mat-form-field>
+                </form>
+              </div>
+            <div class="flex-item3">
+              <form class="example-form">
+                <mat-form-field class="example-full-width" appearance="outline">
+                  <mat-label>Seat Number</mat-label>
+                  <input type="number" matInput [formControl]="seatFormControl" autocomplete="off" placeholder="Seat Number" >
+                </mat-form-field>
+              </form>
+              </div>
+          </div>
+  
+            <app-table></app-table>
+  
+      </mat-tab>
+    </mat-tab-group>

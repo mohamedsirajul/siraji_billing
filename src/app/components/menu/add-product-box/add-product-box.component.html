@@ -1,0 +1,84 @@
+<!-- Import Angular Flex Layout module in your component module -->
+<form #f="ngForm">
+  <div mat-dialog-content fxLayout="row wrap" fxLayoutAlign="start start">
+    <div class="example-container col-sm-12" fxFlex.gt-xl="20" fxFlex.gt-lg="33.33" fxFlex.gt-sm="50" fxFlex.xs="100">
+      <mat-form-field appearance="outline" class="form-element">
+        <mat-label for="product_name">Product Name</mat-label>
+        <input
+          matInput
+          autocomplete="off"
+          class="form-text"
+          name="name"
+          placeholder="Parotta"
+          (keyup.enter)="myEvent()"
+          [(ngModel)]="selectedProduct.proo_name"
+          [ngModelOptions]="{ standalone: true }"
+        />
+      </mat-form-field>
+    </div>
+
+    <div class="example-container col-sm-12" fxFlex.xl="25" fxFlex.lg="33.33" fxFlex.sm="50" fxFlex.xs="100">
+      <mat-form-field class="example-chip-list" appearance="outline">
+        <mat-label>Units</mat-label>
+        <mat-chip-grid
+          #chipGrid1
+          aria-label="unit selection"
+          cdkDropList
+          (cdkDropListDropped)="drop_units($event)"
+        >
+          <mat-chip-row *ngFor="let unit of proo_spltd_units" (removed)="remove_unit(unit)" cdkDrag>
+            {{ unit }}
+            <button matChipRemove>
+              <mat-icon>cancel</mat-icon>
+            </button>
+          </mat-chip-row>
+          <input
+            placeholder="1psc"
+            #fieldInput1
+            name="units"
+            [matChipInputFor]="chipGrid1"
+            [(ngModel)]="selectedProduct.proo_units"
+            [ngModelOptions]="{ standalone: true }"
+            [matChipInputSeparatorKeyCodes]="separatorKeysCodes1"
+            [matChipInputAddOnBlur]="addOnBlur1"
+            (matChipInputTokenEnd)="add_unit($event)"
+          />
+        </mat-chip-grid>
+      </mat-form-field>
+    </div>
+
+    <div class="example-container col-sm-12" fxFlex.xl="25" fxFlex.lg="33.33" fxFlex.sm="50" fxFlex.xs="100">
+      <mat-form-field class="example-chip-list" appearance="outline">
+        <mat-label>Price</mat-label>
+        <mat-chip-grid
+          #chipGrid2
+          aria-label="Price selection"
+          cdkDropList
+          (cdkDropListDropped)="drop_price($event)"
+        >
+          <mat-chip-row *ngFor="let price of proo_spltd_price; let i = index" (removed)="remove_price(price)" cdkDrag>
+            {{ price }}
+            <button matChipRemove>
+              <mat-icon>cancel</mat-icon>
+            </button>
+          </mat-chip-row>
+          <input
+            placeholder="10"
+            #fieldInput2
+            name="Price"
+            [matChipInputFor]="chipGrid2"
+            [(ngModel)]="selectedProduct.proo_price"
+            [ngModelOptions]="{ standalone: true }"
+            [matChipInputSeparatorKeyCodes]="separatorKeysCodes2"
+            [matChipInputAddOnBlur]="addOnBlur2"
+            (matChipInputTokenEnd)="add_price($event)"
+          />
+        </mat-chip-grid>
+      </mat-form-field>
+    </div>
+  </div>
+</form>
+<div mat-dialog-actions>
+  <button mat-button (click)="close()">Close</button>
+  <button mat-button color="accent" (click)="okey(f)" cdkFocusInitial>Okay</button>
+</div>

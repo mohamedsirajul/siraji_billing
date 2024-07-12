@@ -1,0 +1,60 @@
+/* Input Styles */
+.filter.inputunits, .inputquantity {
+  border: 2px solid black;
+  width: 400px; /* Initial width for mobile */
+  height: 49px;
+  padding: 10px;
+  font-size: 20px;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.filter.inputunits {
+  margin-right: 10px;
+}
+
+/* Flex Container */
+.flex-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .filter.inputunits, .inputquantity {
+    width: 100%; /* Full width for mobile */
+    margin-bottom: 10px;
+  }
+}
+
+@media (min-width: 769px) {
+  /* Adjust the width for desktop view */
+  .filter.inputunits, .inputquantity {
+    width: 600px; /* Increase the width for desktop */
+  }
+}
+
+/* Button Styles */
+.mat-raised-button {
+  margin-right: 8px;
+  margin-top: 8px;
+}
+
+/* Container Styles */
+.container {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Card Styles */
+.example-card {
+  max-width: 100%;
+  width: auto;
+  margin: 8px !important;
+  padding: 8px !important;
+}
+
+/* Other Styles */
+.example-spacer {
+  flex: 1 1 auto;
+}

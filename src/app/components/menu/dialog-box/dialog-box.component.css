@@ -1,0 +1,16 @@
+/* Flex Container Styles */
+.example-container {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Input Styles */
+.mat-form-field {
+  width: 100%;
+}
+
+/* Other Styles */
+.mat-raised-button {
+  margin-right: 8px;
+  margin-top: 8px;
+}

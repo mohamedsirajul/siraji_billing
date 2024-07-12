@@ -1,0 +1,40 @@
+.username{
+  margin-top: 15px;
+  font-size: 20px;
+}
+.mat-sidenav-container {
+  height: calc(99vh - 60px); 
+  overflow: hidden;
+}
+.accordion{
+  margin-left: 5px;
+}
+.accordion-item:not(.collapsed) .accordion-button {
+  background-color: transparent !important;
+}
+.accordion-item:not(.collapsed) .accordion-button {
+  color: inherit !important;
+}
+
+.accordion-item {
+  border: none !important;
+}
+
+.mat-sidenav {
+  width: 250px;
+}
+a {
+  margin-left: 9px;
+  overflow: hidden;
+}
+.mat-list-item:hover {
+  background-color: rgb(182, 180, 180);
+}
+.example-spacer {
+  flex: 1 1 auto;
+}
+.mat-expansion-panel-header .mat-content .mat-panel-title {
+ font-size: 50px;
+}
+
+

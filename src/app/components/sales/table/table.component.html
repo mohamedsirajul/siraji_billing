@@ -1,0 +1,230 @@
+<!-- 
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+/> -->
+<!-- <br>
+<br> -->
+
+  <!-- <mat-card> -->
+    <input
+    class="filter"
+    matInput
+    (keyup)="applyFilter($event)"
+    placeholder="Search Item"
+    #input
+    type="text"
+    [matAutocomplete]="auto"
+    [formControl]="myControl"
+    matInput  
+  />
+  <mat-autocomplete
+    #auto="matAutocomplete"
+    (optionSelected)="onSelectionChange($event.option.value) "
+  >
+    <mat-option
+      *ngFor="let option of filteredOption | async" [value]="option" class="option" >
+    
+      {{ option }}
+    </mat-option>
+  </mat-autocomplete>
+
+  <!-- </mat-card> -->
+
+<!-- <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+  <ng-container matColumnDef="id">
+    <th mat-header-cell *matHeaderCellDef>No.</th>
+    <td mat-cell *matCellDef="let i=index">{{ i+1}}</td>
+    <td mat-footer-cell *matFooterCellDef>Total</td>
+  </ng-container>
+
+  <ng-container matColumnDef="name">
+    <th mat-header-cell *matHeaderCellDef>Product</th>
+    <td mat-cell *matCellDef="let element">{{ element.name }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="units">
+    <th mat-header-cell *matHeaderCellDef>Units</th>
+    <td mat-cell *matCellDef="let element">{{ data.units }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="quantity">
+    <th mat-header-cell *matHeaderCellDef>Quantity</th>
+
+    <td mat-cell *matCellDef="let element">
+      {{ element.quantity }}
+    </td>
+  </ng-container>
+
+
+  <ng-container matColumnDef="price">
+    <th mat-header-cell *matHeaderCellDef>Price</th>
+    <td mat-cell *matCellDef="let element">{{ element.price }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="amount">
+    <th mat-header-cell *matHeaderCellDef>Amount</th>
+    <td mat-cell *matCellDef="let element">
+      {{ element.amount }}
+    </td>
+  </ng-container>
+  <ng-container matColumnDef="action">
+    <th mat-header-cell *matHeaderCellDef>Action</th>
+    <td mat-cell *matCellDef="let element">
+      <button
+        mat-raised-button
+        class="btn btn-danger"
+        (click)="deleteProduct(element)"
+      >
+        <mat-icon>delete</mat-icon>
+      </button>
+    </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+
+  <tr class="mat-row" *matNoDataRow>
+    <td class="mat-cell" colspan="6">
+      Search a Product     </td>
+  </tr>
+</table> -->
+
+
+<!-- <ng-container *ngIf="arr_data.length!=0">
+  <div class="container">
+    <div class="table-responsive">
+      <table class="fl-table">
+        <thead>
+          <tr>
+            <th>S.No</th>
+            <th>Name</th>
+            <th>Units</th>
+            <th>Quantity</th>
+            <th>Price</th>
+            <th>Amount</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of arr_data; let i = index">
+            <td>{{ i + 1 }}</td>
+            <td>{{ item.name }}</td>
+            <td>{{ item.units }}</td>
+            <td>{{ item.quantity }}</td>
+            <td>{{ item.price }}</td>
+            <td>{{ item.amount }}</td>
+            <td> -->
+              <!-- <button mat-raised-button class="btn btn-danger" (click)="deleteProduct(i)">
+                <mat-icon>delete</mat-icon>
+              </button>
+              <button mat-raised-button  color="primary" (click)="EditDetails(i)">
+                <mat-icon>edit</mat-icon>
+              </button> -->
+              <!-- <button mat-button (click)="EditDetails(i)">
+                <mat-icon matTooltip="Edit" color="primary">edit</mat-icon>
+              </button>
+              <button mat-button (click)="deleteProduct(i)">
+                <mat-icon matTooltip="Delete" color="warn">delete</mat-icon>
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div> -->
+  
+  <!-- </ng-container> -->
+
+
+  <div class="container" *ngIf="arr_data.length!=0">
+    <div class="table-wrapper">
+      <table class="fl-table">
+          <thead>
+          <tr>
+            <th>S.No</th>
+            <th>Name</th>
+            <th>Units</th>
+            <th>Quantity</th>
+            <th>Price</th>
+            <th>Amount</th>
+            <th>Action</th>
+          </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let item of arr_data; let i = index">
+                <td>{{ i + 1 }}</td>
+                <td>{{ item.name }}</td>
+                <td>{{ item.units }}</td>
+                <td>{{ item.quantity }}</td>
+                <td>{{ item.price }}</td>
+                <td>{{ item.amount }}</td>
+                <td>
+                  <!-- <button mat-raised-button class="btn btn-danger" (click)="deleteProduct(i)">
+                    <mat-icon>delete</mat-icon>
+                  </button>
+                  <button mat-raised-button  color="primary" (click)="EditDetails(i)">
+                    <mat-icon>edit</mat-icon>
+                  </button> -->
+                  <button mat-button (click)="EditDetails(i)">
+                    <mat-icon matTooltip="Edit" color="primary">edit</mat-icon>
+                  </button>
+                  <button mat-button (click)="deleteProduct(i)">
+                    <mat-icon matTooltip="Delete" color="warn">delete</mat-icon>
+                  </button>
+                </td>
+          </tr>
+          <tbody>
+      </table>
+    </div>
+    </div>
+<mat-card>
+ 
+  <hr />
+
+  <table class="table3">
+    <tr>
+      <td>
+        <label class="total">Total Product</label>
+        {{ getTotalProdut() }}
+      </td>
+      <td>
+        <label class="quantity">Total Quantity</label>
+        {{ getTotalQuantity()}}
+      </td>
+      <td>
+        <label class="amount">Total Amount</label>
+     
+        {{ getTotalAmount() }}
+      </td>
+      <td>
+              
+      </td>
+      <td>
+              
+      </td>
+      <td>
+             
+      </td>
+    </tr>
+  </table>
+  <hr />
+  <table>
+    <tr>
+      <td>
+        <button class="kot" (click)="kot_bill()" mat-raised-button color="primary">KOT</button>
+      </td>
+      <td>
+        <button class="print" (click)="print_bill()"  mat-raised-button color="primary">Print</button>
+      </td>
+    </tr>
+  </table>
+
+
+
+
+
+
+  
+  
+</mat-card>

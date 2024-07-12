@@ -1,0 +1,217 @@
+ 
+table {
+    width: 100%;
+    text-align: center;
+  }
+.total{
+    margin-right: 20px;
+    font-weight: 5px;
+}
+.quantity{
+    margin-right: 20px;    
+}
+.amount{
+    margin-right: 20px;
+}
+.mat-header-cell{
+    text-align: center;
+    width: 20px;
+    font-size: 30px;
+    font-style: italic;
+    text-shadow: 20px;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    
+}
+.mat-cell{
+    font-size: larger;
+    font-family: 'Times New Roman', Times, serif;
+}
+::placeholder{
+    margin: 0px;
+
+}   
+.table2{
+    width: 100%;
+}
+/* .filter{
+    margin: 0px;
+    border:  solid black;
+    width: 105%;
+    height: 45px;
+} */
+input{   
+    border: 0px solid black;
+    width: 125px;
+    text-align: center;
+    padding: center;
+    height: 29px;
+}
+#button1{
+    margin-left: 15px;
+}
+
+
+button{
+    height: 34px;
+}
+
+input{
+    margin-left: 15px;
+    
+   
+    width: 125px;
+    text-align: center;
+    padding: center;
+    height: 29px;
+}
+.input1{
+    margin-left: 130px;
+    
+    border: 2px solid black;
+    width: 125px;
+    text-align: center;
+    padding: center;
+    height: 29px;
+}
+
+.option{
+   font-size: 15px;
+}
+.option:hover{
+    background-color: rgb(182, 180, 180);
+}
+button{
+    margin-left: 15px;
+    height: 29px;
+    /* border: solid black 2px; */
+}
+mat-icon{
+    padding-bottom: 20px;
+    color: #FF0000;
+}
+
+.example-button-row button,
+.example-button-row a {
+  margin-right: 8px;
+
+  height: 40px;
+
+}
+.kot{
+/* padding-bottom: 30px; */
+text-align: center;
+width: 100px;
+
+}
+.print{
+    /* padding-bottom:30px; */
+    text-align: center;
+    width: 100px;
+
+}
+.custom-icon {
+    color: red;
+  }
+.filter{
+    margin: 0px;
+    border:  solid black;
+    width: 100%;
+    height: 45px;
+}
+
+.table-responsive {
+    overflow-x: auto;
+  }  
+.fl-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: auto;
+  }
+.fl-table th,
+.fl-table td {
+    text-align: center;
+    padding: 8px;
+    font-size: large;
+}
+  
+.fl-table th {
+    background-color: #f8f9fa;
+}
+  
+.fl-table tbody tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+  
+@media (max-width: 768px) {
+    .fl-table {
+      display: block;
+      width: 100%;
+      overflow-x: auto;
+}
+  
+.fl-table thead,
+.fl-table tbody,
+.fl-table th,
+.fl-table td,
+.fl-table tr {
+      display: block;
+}
+  
+.fl-table thead tr {
+      position: absolute;
+      top: -9999px;
+      left: -9999px;
+}
+  
+.fl-table tbody tr {
+      border: 1px solid #ccc;
+}
+  
+.fl-table td {
+      border: none;
+      border-bottom: 1px solid #eee;
+      position: relative;
+      padding-left: 50%;
+      text-align: left;
+}
+  
+.fl-table td:before {
+      position: absolute;
+      top: 6px;
+      left: 6px;
+      width: 45%;
+      padding-right: 10px;
+      white-space: nowrap;
+}
+  
+.fl-table td:nth-of-type(1):before {
+      content: "S.No";
+}
+  
+.fl-table td:nth-of-type(2):before {
+      content: "Name";
+}
+  
+.fl-table td:nth-of-type(3):before {
+      content: "Units";
+}
+.fl-table td:nth-of-type(4):before {
+      content: "Quantity";
+}
+  
+.fl-table td:nth-of-type(5):before {
+      content: "Price";
+}
+  
+.fl-table td:nth-of-type(6):before {
+      content: "Amount";
+}
+.fl-table td:nth-of-type(7):before {
+      content: "Delete";
+}
+  
+.fl-table td:nth-of-type(8):before {
+      content: "Edit";
+    }
+}
+  

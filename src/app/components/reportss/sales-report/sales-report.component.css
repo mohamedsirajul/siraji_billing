@@ -1,0 +1,115 @@
+
+.stats-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.stats-card {
+  flex-basis: 30%;
+  padding: 10px;
+}
+
+.mat-card {
+  background-color: white;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.stats-title {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+.bg-purple-500 {
+  background-color: green;
+  color: white;
+}
+.stats-amount {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+@media (max-width: 700px) {
+  .stats-container {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .stats-card {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+}
+.example-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between; /* Adjust alignment as needed */
+  margin-bottom: 20px; /* Add margin as needed */
+}
+
+.form-element {
+  flex-grow: 1; /* Allow form fields to grow and fill the available space */
+  margin-right: 10px; /* Adjust spacing as needed */
+}
+
+
+
+
+
+.example-full-width {
+width: 100%;
+}
+
+.example-card {
+max-width: 100%;
+width: auto;
+margin: 10px 10px 10px 10px;
+} 
+
+
+.spacer {
+  flex: 1 1 auto;
+}
+
+.spacers {
+  flex: 1 1 auto;
+}
+
+
+:host {
+  height: 100%;
+}
+:host mat-sidenav-container {
+  display: flex;
+  flex-flow: column;
+  height: 100%;
+  width: 100%;
+}
+:host mat-sidenav-container mat-sidenav {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  min-width: 300px;
+  max-width: 300px;
+  overflow-y: hidden;
+  background: white;
+  padding: 0 6px 0 18px;
+}
+:host mat-sidenav-container mat-sidenav-content {
+  display: flex;
+  flex-direction: column;
+  align-content: flex-start;
+  justify-content: flex-start;
+  height: 100%;
+  overflow-y: hidden;
+  background: white;
+}
+:host mat-sidenav-container mat-sidenav-content .table-container {
+  width: 100vw;
+}
+:host mat-sidenav-container mat-sidenav-content .mat-table {
+  display: block;
+  width: 100%;
+  overflow-x: auto;
+}

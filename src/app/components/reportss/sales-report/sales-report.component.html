@@ -1,0 +1,197 @@
+<div fxFlex="1 0 100%" fxLayout="column" fxLayoutAlign="start stretch">
+  <mat-toolbar class="accentcolor">
+    <mat-toolbar-row>
+      <span class="fill-remaining-space">Sales Reports</span>
+      <span class="spacer"></span>
+      <button mat-icon-button [matMenuTriggerFor]="menu2" aria-label="Open Menu">
+        <mat-icon>more_vert</mat-icon>
+      </button>
+
+      <mat-menu #menu2="matMenu">
+        <button mat-menu-item (click)="exportpdf()">
+          <mat-icon>picture_as_pdf</mat-icon>
+          <span>Export PDF</span>
+        </button>
+        <button mat-menu-item (click)="exportcsv()">
+          <mat-icon>library_books</mat-icon>
+          <span>Export CSV</span>
+        </button>
+      </mat-menu>
+    </mat-toolbar-row>
+  </mat-toolbar>
+<mat-card >
+  <br>
+  <div class="example-container">
+    <mat-form-field appearance="outline" class="form-element">
+      <mat-label>Start Date</mat-label>
+      <input matInput [matDatepicker]="start" (dateInput)="StartDateEvent($event)" [max]="getFormattedDate(today)" />
+      <mat-datepicker-toggle matSuffix [for]="start"></mat-datepicker-toggle>
+      <mat-datepicker #start></mat-datepicker>
+    </mat-form-field>
+  
+    <mat-form-field appearance="outline" class="form-element">
+      <mat-label>End Date</mat-label>
+      <input matInput [matDatepicker]="end" (dateInput)="EndDateEvent($event)" [max]="getFormattedDate(today)" />
+      <mat-datepicker-toggle matSuffix [for]="end"></mat-datepicker-toggle>
+      <mat-datepicker #end></mat-datepicker>
+    </mat-form-field>
+  
+    <button class="button" mat-raised-button color="primary" (click)="getResults()">
+      Get Results
+    </button>
+  </div>
+  <div class="stats-container">
+    <div class="stats-card"  *ngFor="let stat of stats" [style.backgroundColor]="stat.color">
+      <mat-card class="mat-card bg-purple-500">
+        <mat-card-content>
+          <div class="stats-title">{{ stat.title }}</div>
+          <div class="stats-amount">{{ stat.amount }}</div>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+	<mat-sidenav-container fxFlex="0 1 auto">
+
+		<mat-sidenav-content>
+			<div class="mat-elevation-z8 m-12">
+				<div class="table-container">
+					<!-- <table mat-table [dataSource]="dataSource"> -->
+					<table mat-table [dataSource]="dataSource">
+
+            <ng-container matColumnDef="bill_no" sticky>
+              <mat-header-cell *matHeaderCellDef  class="table-column-110"> Bill Id </mat-header-cell>
+              <mat-cell *matCellDef="let element" class="table-column-110"> {{element.bill_id}} </mat-cell>
+            </ng-container>
+
+            <ng-container matColumnDef="product_id">
+              <mat-header-cell *matHeaderCellDef  class="table-column-100"> Id </mat-header-cell>
+              <mat-cell *matCellDef="let element" class="table-column-100"> {{element.product_id}} </mat-cell>
+            </ng-container>
+
+            <ng-container matColumnDef="product_name">
+              <mat-header-cell *matHeaderCellDef  class="table-column-100"> Name </mat-header-cell>
+              <mat-cell *matCellDef="let element" class="table-column-100"> {{element.product_name}} </mat-cell>
+            </ng-container>
+
+            <ng-container matColumnDef="product_units">
+              <mat-header-cell *matHeaderCellDef  class="table-column-100"> Units </mat-header-cell>
+              <mat-cell *matCellDef="let element" class="table-column-100"> {{element.product_units}} </mat-cell>
+            </ng-container>
+
+            <ng-container matColumnDef="product_price">
+              <mat-header-cell *matHeaderCellDef  class="table-column-100"> Price </mat-header-cell>
+              <mat-cell *matCellDef="let element" class="table-column-100"> {{element.product_price}} </mat-cell>
+            </ng-container>
+
+            <ng-container matColumnDef="product_quantity">
+              <mat-header-cell *matHeaderCellDef  class="table-column-100"> Quantity </mat-header-cell>
+              <mat-cell *matCellDef="let element" class="table-column-100"> {{element.product_quantity}} </mat-cell>
+            </ng-container>
+
+            <ng-container matColumnDef="product_amount">
+              <mat-header-cell *matHeaderCellDef  class="table-column-100"> Amount </mat-header-cell>
+              <mat-cell *matCellDef="let element" class="table-column-100"> {{element.product_amount}} </mat-cell>
+            </ng-container>
+
+            <ng-container matColumnDef="total_amt">
+              <mat-header-cell *matHeaderCellDef  class="table-column-100"> Total Amt </mat-header-cell>
+              <mat-cell *matCellDef="let element" class="table-column-100"> {{element.product_total}} </mat-cell>
+            </ng-container>
+
+            <ng-container matColumnDef="date">
+              <mat-header-cell *matHeaderCellDef  class="table-column-100"> Date </mat-header-cell>
+              <mat-cell *matCellDef="let element" class="table-column-100"> {{element.date}} </mat-cell>
+            </ng-container>
+
+            <ng-container matColumnDef="time">
+              <mat-header-cell *matHeaderCellDef  class="table-column-100"> Time </mat-header-cell>
+              <mat-cell *matCellDef="let element" class="table-column-100"> {{element.time}} </mat-cell>
+            </ng-container>
+						<mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+						<mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+					</table>
+
+					<div>
+						<mat-paginator #paginator [pageSize]="10" [pageSizeOptions]="[5, 10, 20]"
+							[showFirstLastButtons]="true">
+						</mat-paginator>
+					</div>
+
+				</div>
+        <!-- end table container -->
+
+			</div>
+		</mat-sidenav-content>
+
+	</mat-sidenav-container>
+
+       
+              
+          <!-- <div class="table-containers">         
+          <div class="example-containers mat-elevation-z8">
+            <mat-table #table [dataSource]="dataSource">
+
+              <ng-container matColumnDef="bill_no" >
+                <mat-header-cell *matHeaderCellDef> bill id </mat-header-cell>
+                <mat-cell *matCellDef="let element"> {{element.bill_id}} </mat-cell>
+              </ng-container>
+
+              <ng-container matColumnDef="product_id">
+                <mat-header-cell *matHeaderCellDef> Id </mat-header-cell>
+                <mat-cell *matCellDef="let element"> {{element.product_id}} </mat-cell>
+              </ng-container>
+
+              <ng-container matColumnDef="product_name">
+                <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
+                <mat-cell *matCellDef="let element"> {{element.product_name}} </mat-cell>
+              </ng-container>
+
+              <ng-container matColumnDef="product_units">
+                <mat-header-cell *matHeaderCellDef> Units </mat-header-cell>
+                <mat-cell *matCellDef="let element"> {{element.product_units}} </mat-cell>
+              </ng-container>
+
+              <ng-container matColumnDef="product_price">
+                <mat-header-cell *matHeaderCellDef> product_price </mat-header-cell>
+                <mat-cell *matCellDef="let element"> {{element.product_price}} </mat-cell>
+              </ng-container>
+
+              <ng-container matColumnDef="product_quantity">
+                <mat-header-cell *matHeaderCellDef> Quantity </mat-header-cell>
+                <mat-cell *matCellDef="let element"> {{element.product_quantity}} </mat-cell>
+              </ng-container>
+
+              <ng-container matColumnDef="product_amount">
+                <mat-header-cell *matHeaderCellDef> Amount </mat-header-cell>
+                <mat-cell *matCellDef="let element"> {{element.product_amount}} </mat-cell>
+              </ng-container>
+
+              <ng-container matColumnDef="total_amt">
+                <mat-header-cell *matHeaderCellDef> Total Amt </mat-header-cell>
+                <mat-cell *matCellDef="let element"> {{element.product_total}} </mat-cell>
+              </ng-container>
+
+              <ng-container matColumnDef="date">
+                <mat-header-cell *matHeaderCellDef> date </mat-header-cell>
+                <mat-cell *matCellDef="let element"> {{element.date}} </mat-cell>
+              </ng-container>
+
+              <ng-container matColumnDef="time">
+                <mat-header-cell *matHeaderCellDef> time </mat-header-cell>
+                <mat-cell *matCellDef="let element"> {{element.time}} </mat-cell>
+              </ng-container>
+
+              <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+              <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+            </mat-table>
+
+            <mat-paginator
+            [pageIndex]="0"
+            [pageSize]="10"
+            [pageSizeOptions]="[2, 5, 10, 25, 100]"
+            [showFirstLastButtons]="true"
+          >
+          </mat-paginator>
+          </div>
+          </div> -->
+                        

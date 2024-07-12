@@ -1,0 +1,78 @@
+<!-- <ng-container *ngIf="submits.length!=0"> -->
+
+    <div fxLayout="column" class="krl-row"  fxLayoutGap="20px">
+        <div fxFlex class="krl-col" class="form-component-holder">
+          <div>
+            <mat-toolbar class="mattoolbar">
+              <mat-toolbar-row>
+                <span class="fill-remaining-space">Products Menu</span>
+                <span class="spacer"></span>
+                <button class="button" (click)="Add_openDialog()" mat-raised-button color="primary">
+                  Add New Product
+                </button>
+              </mat-toolbar-row>
+            </mat-toolbar>
+      </div>
+      </div>
+    </div>
+            <!-- <mat-card class="example-card mat-elevation-z0">
+              <div class="example-container">
+                <mat-form-field appearance="outline">
+                  <input
+                    matInput
+                    (keyup)="applyFilter($event.target.value)"
+                    placeholder="Search Bulk Products"
+                  />
+                </mat-form-field>
+              </div>
+            </mat-card> -->
+  
+            <div class="container">
+              <div class="table-wrapper">
+                <table class="fl-table">
+                    <thead>
+                    <tr>
+                        <th>S.No</th>
+                        <th>Product Id</th>
+                        <th>Product Name</th>
+                        <th>units</th>
+                        <th>Price</th>
+                        <th>Action</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr *ngFor ="let item of menuarr;let i=index" >
+                        <td>
+                                {{i+1}}
+                        </td>
+                        <td>
+                              {{item.id}}
+                        </td>
+                        <td>
+                            {{item.name}}
+                        </td>
+                        <td>
+                          {{item.units}}
+                        </td>
+                        <td>
+                          {{item.price}}
+                        </td>
+                        <td >
+                          <button mat-button (click)="Editdialog(i)">
+                            <mat-icon matTooltip="Edit" color="primary">edit</mat-icon>
+                          </button>
+                          <button mat-button (click)="Deletedialog(item.id)">
+                            <mat-icon matTooltip="Delete" color="warn">delete</mat-icon>
+                          </button>
+                          <button mat-button (click)="showdata(i)">
+                            <mat-icon matTooltip="View" color="accent">remove_red_eye</mat-icon>
+                          </button>              
+                        </td>
+                    </tr>
+                    <tbody>
+                </table>
+              </div>
+              </div>
+          
+      
+            
